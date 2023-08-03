@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    select {
+      
+      margin-bottom: 10px;
+      width: 200px;
+      padding: 5px;
+    }
+    
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    h2 {
+      margin-top: 20px;
+    }
+    
+    #food,
+    #electronic,
+    #medicine,
+    #totalPrice {
+      margin-bottom: 10px;
+    }
+  
+          .navbar {
+            background-color: #603030;
+            overflow: hidden;
+        }
+        #home{
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a {
+            float: right;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar"><a type="button" id="logout-btn">Logout</a>
+        <a type="button" id="leaderbord" style="display: none;">Leaderbord</a>
+        <a type="button" id="download" style="display: none">DownloadExp</a>
+        <a href="./contactUs.html">Contact Us</a>
+        <a type="button" id="PremiumButton"> Buy Premium</a>
+        <a href="#" id="home">Home</a>
+        
+    </div>
+ 
+    <br>
+    <label for="">Product name</label>
+    <input type="text" id="product">
+    <label for="">Prise</label>
+    <input type="number" id="price">
+    <label>Category</label>
+    <select id="option">
+        <option value="food">Food</option>
+        <option value="electronic">Electronic</option>
+        <option value="Medicine">Medicine</option>
+      </select>
+    <button type="submit" id="submit">Add Item</button>
+  
+  <h3 id="food">Expenses Item-:</h3> <br>
+  <ul id="food"></ul>
+  <div id="pagination"> </div>
+
+   <!-- <div id="leaderbord"></div><br>
+   <div id="download"></div> -->
+
+
+  <br>
+  <h3 id="showleaderbord"></h3>
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+
+    <script src="./dashbord.js"></script>
+</body>
+</html>
