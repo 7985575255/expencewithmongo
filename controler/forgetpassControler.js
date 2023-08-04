@@ -27,7 +27,7 @@ exports.getForgetpassword = async (req, res) => {
       UserId: user._id, // Mongoose returns _id instead of Id for the primary key
     });
 
-    const resetUrl = `http://localhost:3000/password/reset-password/${forgotPasswordRequest._id}`; // Use _id for Mongoose
+    const resetUrl = `/password/reset-password/${forgotPasswordRequest._id}`; // Use _id for Mongoose
 
     const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
     sendSmtpEmail.subject = 'Password Reset';

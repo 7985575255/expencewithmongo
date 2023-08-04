@@ -4,7 +4,7 @@ async function resetPassword(event){
    try{
     const email=document.getElementById('email').value;
     
-    const  response=await axios.post('http://localhost:3000/password/forgot-password',{email});
+    const  response=await axios.post('/password/forgot-password',{email});
     console.log(response.data);
     if(response.status==200){
       alert("Email is sent succesfully check your email box");

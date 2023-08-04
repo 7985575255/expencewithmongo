@@ -19,7 +19,7 @@ async function postData(obj) {
   try {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "http://localhost:3000/user/expence/add-data",
+      "/user/expence/add-data",
       obj,
       { headers: { Authorization: token } }
     );
@@ -70,7 +70,7 @@ async function deleteUser(Id, price) {
     console.log("Delete function calling");
     const token = localStorage.getItem("token");
     const del = await axios.delete(
-      `http://localhost:3000/user/expence/delete/${Id}?price=${price}`,
+      `/user/expence/delete/${Id}?price=${price}`,
       {
         headers: { Authorization: token },
       }
@@ -94,7 +94,7 @@ async function removeUserFromScreen(user_id) {
 // show data when page is refresh
 window.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
-  axios.get("http://localhost:3000/user/expence/get-data", {
+  axios.get("/user/expence/get-data", {
       headers: { Authorization: token },
     })
     .then((response) => {
@@ -179,7 +179,7 @@ function premiumUser() {
 async function downloadExpence(){
   const token = localStorage.getItem("token");
   try{
-  let response=await axios.get('http://localhost:3000/downloadexpense', { headers: { Authorization: token } })
+  let response=await axios.get('/downloadexpense', { headers: { Authorization: token } })
       if(response.status==200){
         window.location.href = response.data.fileUrl;
       }else{
@@ -194,7 +194,7 @@ async function downloadExpence(){
 
 document.getElementById("PremiumButton").onclick = async function (e) {
   const token = localStorage.getItem("token");
-  const response = await axios.get("http://localhost:3000/purchase/premiumfeatures",
+  const response = await axios.get("/purchase/premiumfeatures",
   { headers: { Authorization: token} });
   console.log(response)
  
@@ -210,7 +210,7 @@ document.getElementById("PremiumButton").onclick = async function (e) {
     handler: async function (response) {
       console.log(response);
       try {
-        const ans = await axios.post("http://localhost:3000/purchase/updatetransactionstatus",
+        const ans = await axios.post("/purchase/updatetransactionstatus",
           {
             order_id: options.order_id,
             payment_id: response.razorpay_payment_id,
@@ -258,7 +258,7 @@ async function showLeaderbordData() {
     const token = localStorage.getItem("token");
   try {
 
-    const response = await axios.get("http://localhost:3000/get/leaderbordata", { headers: { Authorization: token }});
+    const response = await axios.get("/get/leaderbordata", { headers: { Authorization: token }});
     let id=1;
     let parent =document.getElementById('showleaderbord');
     parent.innerHTML="";
