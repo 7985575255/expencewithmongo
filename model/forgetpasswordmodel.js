@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { v4: uuidv4 } = require('uuid'); 
 
-// Define your MongoDB schema (example: ForgetPassword schema)
 const forgetPasswordSchema = new Schema({
   id: {
-    type: String, // In Mongoose, we can use String type for UUID values
-    default: () => uuidv4(), // Generate UUID values using a UUID library
+    type: String, 
+    default: () => uuidv4(), 
     index: true,
     unique: true,
   },
@@ -19,9 +19,6 @@ const forgetPasswordSchema = new Schema({
   },
 });
 
-// Create the ForgetPassword model
 const ForgetPassword = mongoose.model('ForgetPassword', forgetPasswordSchema);
 
-// Export the model
 module.exports = ForgetPassword;
-

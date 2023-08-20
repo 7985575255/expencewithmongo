@@ -24,7 +24,7 @@ exports.getForgetpassword = async (req, res) => {
     const id = uuidv4();
     const forgotPasswordRequest = await ForgotPasswordRequest.create({
       isActive: true,
-      UserId: user._id, // Mongoose returns _id instead of Id for the primary key
+      UserId: user._id, 
     });
 
     const resetUrl = `/password/reset-password/${forgotPasswordRequest._id}`; // Use _id for Mongoose

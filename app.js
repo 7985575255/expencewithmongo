@@ -23,7 +23,7 @@ app.use('/purchase', routerPurchase);
 app.use('/', routerUser);
 app.use('/user/expence', routerExpence);
 
-// Serve static files from the 'public' directory
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // Connect to MongoDB

@@ -16,7 +16,12 @@ exports.purchasepremium = async (req, res) => {
       throw new Error('Failed to create order');
     }
 
-    let premiumOrder = await Order.create({ orderid: order.id, status: "PENDING", user: req.user._id });
+    let premiumOrder = await Order.create({
+      paymentid: order.id, 
+      orderid: order.id,
+      status: "PENDING",
+      user: req.user._id
+    });
 
     res.status(201).json({ order, key_id: rzp.key_id });
   } catch (err) {
@@ -24,7 +29,6 @@ exports.purchasepremium = async (req, res) => {
     res.status(500).json({ error: 'Failed to process purchase' });
   }
 };
-
 exports.updateTransactionStatus = async (req, res) => {
   try {
     const id = req.user._id;
